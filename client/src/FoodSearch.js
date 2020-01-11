@@ -6,7 +6,7 @@ const MATCHING_ITEM_LIMIT = 25;
 class FoodSearch extends React.Component {
   state = {
     foods: [],
-    showRemoveIcon: false,
+    showRemoveIcon: true,
     searchValue: ""
   };
 

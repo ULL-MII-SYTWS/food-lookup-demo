@@ -15,6 +15,7 @@ class App extends Component {
   };
 
   addFood = food => {
+    // concat returns a new array
     const newFoods = this.state.selectedFoods.concat(food);
     this.setState({ selectedFoods: newFoods });
   };
