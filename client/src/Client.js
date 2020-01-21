@@ -1,7 +1,9 @@
 /* eslint-disable no-undef */
 function search(query, cb) {
   return fetch(`http://localhost:3001/api/food?q=${query}`, {
-    accept: "application/json"
+    accept: "application/json",
+    //referrerPolicy: "no-referrer",
+    //mode: "cors",
   })
     .then(checkStatus)
     .then(parseJSON)

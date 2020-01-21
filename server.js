@@ -1,12 +1,14 @@
 const express = require("express");
 const fs = require("fs");
 const sqlite = require("sql.js");
-
+const cors = require("cors");
 const filebuffer = fs.readFileSync("db/usda-nnd.sqlite3");
 
 const db = new sqlite.Database(filebuffer);
 
 const app = express();
+
+app.use(cors());
 
 app.set("port", process.env.PORT || 3001);
 
@@ -24,6 +26,7 @@ const COLUMNS = [
   "kcal",
   "description"
 ];
+
 app.get("/api/food", (req, res) => {
   const param = req.query.q;
 
