@@ -8,8 +8,6 @@ const db = new sqlite.Database(filebuffer);
 
 const app = express();
 
-app.use(cors());
-
 app.set("port", process.env.PORT || 3001);
 
 // Express only serves static assets in production
@@ -27,7 +25,12 @@ const COLUMNS = [
   "description"
 ];
 
-app.get("/api/food", (req, res) => {
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.get("/api/food", cors(corsOptions), (req, res) => {
   const param = req.query.q;
 
   if (!param) {
