@@ -3,7 +3,7 @@ function search(query, cb) {
   return fetch(`http://localhost:3001/api/food?q=${query}`, {
     accept: "application/json",
     //referrerPolicy: "no-referrer",
-    //mode: "cors",
+    mode: "same-origin",
   })
     .then(checkStatus)
     .then(parseJSON)
